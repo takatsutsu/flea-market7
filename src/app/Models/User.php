@@ -20,7 +20,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at',
         'password',
+        'role',
+        'postal_code',
+        'address',
+        'building_name',
+        'user_picture',
     ];
 
     /**
@@ -41,4 +47,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function productContents()
+    {
+        return $this->hasMany("App\Models\ProductContent");
+    }
+
+    public function productComments()
+    {
+        return $this->hasMany("App\Models\ProductComment");
+    }
+
+    public function exhibitedProducts()
+    {
+        return $this->hasMany("App\Models\ExhibitedProduct");
+    }
+
+    public function purchasedProducts()
+    {
+        return $this->hasMany("App\Models\PurchasedProduct");
+    }
 }
