@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ExhibitedProduct extends Model
+class ExhibitionProduct extends Model
 {
     use HasFactory;
 
@@ -32,9 +32,9 @@ class ExhibitedProduct extends Model
         return $this->hasMany("App\Models\ProductComment");
     }
 
-    public function mylistProducts()
+    public function myListProducts()
     {
-        return $this->hasMany("App\Models\MylistProduct");
+        return $this->hasMany("App\Models\MyListProduct");
     }
 
     public function productCategories()

@@ -20,8 +20,8 @@ class ProductComment extends Model
         return $this->belongsto("User");
     }
 
-    public function exhibitedProduct()
+    public function exhibitionProduct()
     {
-        return $this->belongsto("ExhibitedProduct");
+        return $this->belongsto("ExhibitionProduct");
     }
 }

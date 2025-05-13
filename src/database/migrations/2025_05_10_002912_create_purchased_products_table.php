@@ -13,10 +13,10 @@ class CreatePurchasedProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchased_products', function (Blueprint $table) {
+        Schema::create('purchase_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->nullable(false);
-            $table->foreignId('exhibited_product_id')->constrained()->cascadeOnDelete()->nullable(false);
+            $table->foreignId('exhibition_product_id')->constrained()->cascadeOnDelete()->nullable(false);
             $table->string('payment_method_id')->nullable(false);
             $table->string('delivery_postal_code', 10)->nullable(false);
             $table->string('delivery_address')->nullable(false);

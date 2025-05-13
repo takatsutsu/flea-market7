@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExhibitedProductsTable extends Migration
+class CreateExhibitionProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateExhibitedProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('exhibited_products', function (Blueprint $table) {
+        Schema::create('exhibition_products', function (Blueprint $table) {
             $table->id();
             $table->string('product_name')->nullable(false);
             $table->string('product_condition_id')->nullable(false);

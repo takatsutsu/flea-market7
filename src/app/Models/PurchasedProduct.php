@@ -22,7 +22,7 @@ class PurchasedProduct extends Model
 
     public function user()
     {
-        return $this->belongsto("User");
+        return $this->belongsTo("User");
     }
 
     public function paymentMethod()
@@ -32,8 +32,8 @@ class PurchasedProduct extends Model
 
 
 
-    public function purchasedProduct()
+    public function exhibitionProduct()
     {
-        return $this->belongsTo("PurchasedProduct");
+        return $this->belongsTo("ExhibitionProduct");
     }
 }

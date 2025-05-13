@@ -13,8 +13,8 @@ class Condition extends Model
         'condition',
     ];
 
-    public function exhibitedProducts()
+    public function exhibitionProducts()
     {
-        return $this->hasMany("App\Models\Exhibited_product");
+        return $this->hasMany("App\Models\Exhibition_product");
     }
 }
