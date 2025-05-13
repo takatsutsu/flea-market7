@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('role');
-            $table->string('postal_code',10)->nullable();
+            $table->string('postal_code', 10)->nullable();
             $table->string('address')->nullable();
             $table->string('building_name')->nullable();
             $table->string('user_url')->nullable();
