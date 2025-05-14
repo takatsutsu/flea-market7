@@ -1,6 +1,10 @@
 .header_band {
-    background: #0610c5;
+    background: white;
     height: 15vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header_band_box {
@@ -17,16 +21,16 @@
 }
 
 .header_comp-logo {
-    color: #cace09;
+    color:blue;
     text-decoration: none;
     font-weight: bold;
     font-size: 30px;
+    margin-left: 10%;
 }
 
 .header_tool {
     width: 33%;
     margin-top: 20px;
-
 }
 
 .header_nav {
@@ -36,20 +40,13 @@
 }
 
 .header-nav__link {
-    color: #cace09;
+    color:blue;
     text-decoration: none;
 }
 
-.header-nav__button {
-    border: none;
-    background: transparent;
-    color: #cace09;
-    font-size: 16px;
-    cursor: pointer;
-}
 
 .footer {
-    background: #0610c5;
+    background: white;
     margin-top: auto;
 }
 
@@ -57,10 +54,11 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 15vh;
 }
 
 .footer__logo {
-    color: #cace09;
+    color:blue;
     display: flex;
     justify-content: center;
     text-decoration: none;

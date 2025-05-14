@@ -42,7 +42,7 @@ class ExhibitionProduct extends Model
         return $this->hasMany("App\Models\ProductCategory");
     }
 
-    public function purchasedProduct()
+    public function purchaseProduct()
     {
         return $this->hasOne("App\Models\PurchasedProduct");
     }

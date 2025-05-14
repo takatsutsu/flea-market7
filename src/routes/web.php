@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -25,7 +26,7 @@ use App\Http\Controllers\PaymentController;
 // routes/web.php
 // Route::get('/user_complete', [AuthController::class, 'user_complete']);
 //店舗一覧
-Route::get('/', [ShopController::class, 'index']);
+Route::get('/', [ProductController::class, 'index']);
 //店舗詳細画面予約入力
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 //店舗検索

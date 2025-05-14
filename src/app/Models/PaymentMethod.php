@@ -13,9 +13,9 @@ class PaymentMethod extends Model
         'payment_name',
     ];
 
-    public function purchasedProducts()
+    public function purchaseProducts()
     {
-        return $this->hasMany("PurchasedProduct");
+        return $this->hasMany("PurchaseProduct");
     }
 
 }

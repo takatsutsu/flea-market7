@@ -6,69 +6,86 @@
 @endsection
 
 @section('content')
-<html>
+<div class="main_head">
+    <h2 class="small-tittle">打刻画面</h2>
+    <h2 class="small-message">お疲れ様です！！</h2>
+    <p><?php
+        $start_time = date("Y-m-d H:i:s");
 
-<head>
-    <title>Shops</title>
-</head>
+        print_r($start_time);
 
-<body>
-    <div class="shop_container">
-        <!-- 検索フォームの追加 -->
-        @if (Auth::check() && Auth::user()->hasVerifiedEmail())
-        <p class="shop_user-name">{{ $user->name }}様</p>
-        @endif
-        <div class="shop_search-form">
-            <form action="/shop_search" method="post">
-                @csrf
-                <select name="search_area" class="shop_search-field">
-                    <option value="">All area</option>
-                    <!-- エリアのオプションを追加 -->
-                    @foreach($areas as $area)
-                    <option value="{{ $area->id }}" {{ old('search_area', $search_area ?? '') == $area->id ? 'selected' : '' }}>
-                        {{ $area->area_name }}
-                    </option>
-                    @endforeach
-                </select>
-                <select name="search_genre" class="shop_search-field">
-                    <option value="">All genre</option>
-                    <!-- ジャンルのオプションを追加 -->
-                    @foreach($genres as $genre)
-                    <option value="{{ $genre->id }}" {{ old('search_genre', $search_genre ?? '') == $genre->id ? 'selected' : '' }}>
-                        {{ $genre->genre_name }}
-                    </option>
-                    @endforeach
-                </select>
-                <input type="text" name="search_shop" class="shop_search-field" placeholder="店舗名を検索" value="{{ old('search_shop', $search_shop ?? '') }}">
-                <button type="submit" class="btn btn-primary">検索</button>
-            </form>
-        </div>
-        <!-- 検索フォームの終わり -->
-        <div class="shop_grid-container">
-            @foreach($shops as $shop)
-            <div class="shop_card">
-                <form class="shop_detail-form" action="/detail" method="get">
-                    <input type="hidden" name="id_detail" value="{{ $shop->id}}" />
-                    <img src="{{ Storage::url($shop->genre->genre_picture) }}" alt="Shop Picture">
-                    <h2>{{ $shop->shop_name }}</h2>
-                    <p>#{{ $shop->area->area_name }} #{{ $shop->genre->genre_name }}</p>
-                    <div class="shop_button-group">
-                        <a href="/detail/{{ $shop->id }}" class="shop_btn shop_btn-content">詳しく見る</a>
-                        @if (Auth::check() && Auth::user()->hasVerifiedEmail())
-                        @if($shop->is_favorite)
-                        <a href="/favo_delete/{{ $shop->id }}" class="shop_btn-favorite"><img src="{{ asset('images/filled-heart.jpg') }}" alt="お気に入り解除" class="shop_heart-icon"></a>
-                        @else
-                        <a href="/favo_store/{{ $shop->id }}" class="shop_btn-unfavorite"><img src="{{ asset('images/empty-heart2.jpg') }}" alt="お気に入りに追加" class="shop_heart-icon"></a>
-                        @endif
-                        @endif
-                    </div>
-                </form>
+        ?></p>
+</div>Ï
+<div class="all_btn">
+    <div class="work_btn">
+        <form class="form_work_start" action="/workstart" method="post">
+            @csrf
+            <div class="work_start">
+                <input type="hidden" name="work_date" />
+                <input type="hidden" name="work_start_time" />
+                <?php
+                if ($btn1 == "A") {
+                    $visu1 = "";
+                }
+                if ($btn1 == "B" || $btn1 == 'C'  || $btn1 == 'D' || $btn1 == 'E') {
+                    $visu1 = "disabled";
+                }
+                ?>
+                <button class="work_start_btn" type="submit" {{ $visu1 }}>出　　勤</button>
             </div>
+        </form>
+        <form class="form_work_end" action="/workend" method="post">
+            @csrf
+            <div class="work_end">
 
-            @endforeach
-        </div>
+                <input type="hidden" name="work_date" />
+                <input type="hidden" name="work_end_time" />
+                <?php
+                if ($btn1 == "B" || $btn1 == 'C') {
+                    $visu2 = "";
+                }
+                if ($btn1 == "A" || $btn1 == 'D' || $btn1 == 'E') {
+                    $visu2 = "disabled";
+                }
+                ?>
+                <button class="work_end_btn" type=" submit" {{ $visu2 }}>退　　勤</button>
+            </div>
+        </form>
     </div>
-</body>
+    <div class="break_btn">
+        <form class="form_break_start" action="/breakstart" method="post">
+            @csrf
+            <div class="break_start">
+                <input type="hidden" name="break_date" />
+                <input type="hidden" name="break_start_time" />
+                <?php
+                if ($btn1 == "B" || $btn1 == 'C') {
+                    $visu3 = "";
+                }
+                if ($btn1 == "A" || $btn1 == 'D' || $btn1 == 'E') {
+                    $visu3 = "disabled";
+                }
+                ?>
+                <button class="break_start_btn" type=" submit" {{ $visu3 }}>休憩開始</button>
+            </div>
+        </form>
 
-</html>
+        <form class="form_break_end" action="/breakend" method="post">
+            @csrf
+            <div class="break_end">
+                <input type="hidden" name="break_date" />
+                <input type="hidden" name="break_start_time" />
+                <?php
+                if ($btn1 == "D") {
+                    $visu4 = "";
+                }
+                if ($btn1 == "A" || $btn1 == 'B' || $btn1 == 'C'   || $btn1 == 'E') {
+                    $visu4 = "disabled";
+                }
+                ?>
+                <button class="break_end_btn" type="submit" {{ $visu4 }}>休憩終了</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
