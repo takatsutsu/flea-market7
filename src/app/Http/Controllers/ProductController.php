@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\ContactRequest;
@@ -14,20 +13,16 @@ use App\Http\Controllers;
 use Carbon\Carbon;
 use CreateAttendeesTable;
 use App\Http\Controllers\Controller;
+use App\Models\ExhibitionProduct;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        // $user = Auth::User();
-        $today = date("Y-m-d");
-        $today_time = date("Y-m-d H:i:s");
+        // データベースから全てのデータを取得
+        $products = ExhibitionProduct::all();
 
-        // $query = Attendee::where('user_id', $user->id)->where('work_date', $today)->latest()->first();
-
-            $btn1 = 'A';
-
-
-        return view('index', compact('btn1'));
+        // ビューにデータを渡して表示
+        return view('index', compact('products'));
     }
 }

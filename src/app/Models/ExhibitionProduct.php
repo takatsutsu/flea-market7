@@ -44,7 +44,7 @@ class ExhibitionProduct extends Model
 
     public function purchaseProduct()
     {
-        return $this->hasOne("App\Models\PurchasedProduct");
+        return $this->hasOne("App\Models\PurchaseProduct");
     }
 
     public function Condition()

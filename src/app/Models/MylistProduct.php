@@ -16,7 +16,7 @@ class MyListProduct extends Model
 
     public function Products()
     {
-        return $this->hasMany("App\Models\Exhibited_product");
+        return $this->hasMany("App\Models\Exhibition_product");
     }
 
     public function user()

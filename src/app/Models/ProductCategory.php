@@ -14,9 +14,9 @@ class ProductCategory extends Model
         'category_id',
     ];
 
-    public function purchasedProducts()
+    public function purchaseProducts()
     {
-        return $this->belongstoMany("PurchasedProduct");
+        return $this->belongstoMany("PurchaseProduct");
     }
 
     public function category()
