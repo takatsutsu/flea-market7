@@ -31,7 +31,7 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 //店舗検索
 Route::post('/shop_search', [ShopController::class, 'shop_search']);
-//ログイン画面
+// //ログイン画面
 Route::post('/login', [LoginController::class, 'login']);
 //一般ユーザ登録画面
 Route::post('/register_store', [RegisterController::class, 'register_store']);
@@ -79,17 +79,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/reserve_qr/{id}', [ReserveController::class, 'reserve_qr']);
         //店舗における予約照合
         Route::get('/reserve_match/{id}', [ReserveController::class, 'reserve_match']);
-
     });
     //メール認証未完了の場合のルート
     Route::get('/email/verify', function () {
         return view('auth.user_thanks');
     })->name('verification.notice');
     //会員登録時認証メール送信処理
-    Route::get('/user_thanks',
+    Route::get(
+        '/user_thanks',
         function () {
             return view('auth.user_thanks');
-        })->name('registration.success');
+        }
+    )->name('registration.success');
 
     //会員登録時認証メール再送信
     Route::post('/email/verification-notification', function (Request $request) {
@@ -98,6 +99,3 @@ Route::middleware('auth')->group(function () {
         return back()->with('message', '認証メールを再送しました。');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 });
-
-
-

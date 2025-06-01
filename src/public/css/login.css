@@ -1,0 +1,16 @@
+.small-tittle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form__error {
+    color: red;
+}
+
+.form_btn {
+    text-align: center;
+}
+
+.form_main {
+    text-align: center;
+}

@@ -21,9 +21,7 @@
                     <nav class="header_tool">
                         <ul class="header_nav">
                             @if (Auth::check() && Auth::user()->hasVerifiedEmail())
-                            <li class="header-nav__item">
-                                <a class="header-nav__link" href="/sumsearch">日付別集計</a>
-                            </li>
+                            @if (Auth::user()->role === 'user')
                             <li class="header-nav__item">
                                 <a class="header-nav__link" href="/mypage">マイページ</a>
                             </li>
@@ -31,6 +29,14 @@
                                 <form class="form" action="/logout" method="post">
                                     @csrf
                                     <button class="header-nav__button">ログアウト</button>
+                                </form>
+                            </li>
+                            @endif
+                            @else
+                            <li class="header-nav__item">
+                                <form class="form" action="/logout" method="post">
+                                    @csrf
+                                    <button class="header-nav__button">ログイン</button>
                                 </form>
                             </li>
                             @endif
