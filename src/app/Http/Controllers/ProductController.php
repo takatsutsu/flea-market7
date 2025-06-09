@@ -25,4 +25,17 @@ class ProductController extends Controller
         // ビューにデータを渡して表示
         return view('index', compact('products'));
     }
+
+    // ルートモデルバインディングの型ヒントを ExhibitionProduct に変更
+    public function show(ExhibitionProduct $product)
+    {
+        // 必要なリレーションシップをEager Load
+        $product->load([
+            'condition',
+            'categories',
+            'comments.user'
+        ]);
+
+        return view('show', compact('product'));
+    }
 }

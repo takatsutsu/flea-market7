@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProductComment;
 
 class ExhibitionProduct extends Model
 {
@@ -37,9 +38,16 @@ class ExhibitionProduct extends Model
         return $this->hasMany("App\Models\MyListProduct");
     }
 
-    public function productCategories()
+    // public function Categoryy()
+    // {
+    //     return $this->hasMany("App\Models\Category");
+    // }
+    public function categories() // メソッド名を複数形 'categories' に変更することを推奨します
     {
-        return $this->hasMany("App\Models\ProductCategory");
+        // belongsToMany(関連モデル, 中間テーブル名, 自身の外部キー名, 関連モデルの外部キー名)
+        // ここでは中間テーブル名が 'product_categories' であることを前提とします。
+        // また、自身の外部キーは 'exhibition_product_id'、関連モデルの外部キーは 'category_id' であることを前提とします。
+        return $this->belongsToMany(Category::class, 'product_categories', 'exhibition_product_id', 'category_id');
     }
 
     public function purchaseProduct()
@@ -50,5 +58,11 @@ class ExhibitionProduct extends Model
     public function Condition()
     {
         return $this->belongsTo("App\Models\Condition");
+    }
+    public function comments()
+    {
+        // hasMany(関連モデルのクラス名, 関連モデルの外部キー名, 自身の主キー名)
+        // ここでは、product_comments テーブルに exhibition_product_id カラムがあることを前提としています。
+        return $this->hasMany(ProductComment::class, 'exhibition_product_id');
     }
 }

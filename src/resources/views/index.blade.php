@@ -13,12 +13,14 @@
 </div>
 
 <div class="product-grid">
-    @foreach($products as $product)
+    @foreach($products as $product) {{-- ここは `$products` のまま --}}
     <div class="product-card">
-        <div class="image-wrapper">
-            <img src="{{ Storage::url($product->product_picture) }}" alt="商品画像">
-            <p class="product-name">{{ $product->product_name }}</p>
-        </div>
+        <a href="{{ route('products.show', ['product' => $product->id]) }}" class="product-link">
+            <div class="image-wrapper">
+                <img src="{{ Storage::url($product->product_picture) }}" alt="{{ $product->product_name }}">
+                <p class="product-name">{{ $product->product_name }}</p>
+            </div>
+        </a>
     </div>
     @endforeach
 </div>

@@ -27,6 +27,27 @@ use App\Http\Controllers\ProductController;
 // Route::get('/user_complete', [AuthController::class, 'user_complete']);
 //店舗一覧
 Route::get('/', [ProductController::class, 'index']);
+// 商品詳細ページのルート
+// {product} のルートモデルバインディングが ExhibitionProduct クラスに解決されるようにLaravelが自動的に判断します。
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+
+// コメント追加のルート（後で実装することを想定）
+Route::post('/products/{product}/comments', [CommentController::class, 'store'])->name('products.comments.store')->middleware('auth');
+
+// // 商品一覧表示のルート
+// Route::get('/', [ProductController::class, 'index'])->name('index');
+
+// // ルートパスの例、必要に応じて調整
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+
+
+
 //店舗詳細画面予約入力
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 //店舗検索
