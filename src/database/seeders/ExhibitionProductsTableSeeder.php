@@ -25,7 +25,7 @@ class ExhibitionProductsTableSeeder extends Seeder
             'brand_name' => '',
             'product_price' => 15000,
             'user_id' => 1,
-            'sold_out' =>'',
+            'sold_out' => '',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -104,7 +104,7 @@ class ExhibitionProductsTableSeeder extends Seeder
         $param = [
             'product_name' => 'ショルダーバッグ',
             'product_condition_id' => 3,
-            'product_picture' => 'Leather+Shoes+Product+Photo.jpg',
+            'product_picture' => 'Purse+fashion+pocket.jpg',
             'product_explanation' => 'おしゃれなショルダーバッグ',
             'brand_name' => '',
             'product_price' => 3500,
@@ -156,6 +156,5 @@ class ExhibitionProductsTableSeeder extends Seeder
             'updated_at' => $now,
         ];
         DB::table('exhibition_products')->insert($param);
-
     }
 }

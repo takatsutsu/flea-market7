@@ -1,0 +1,231 @@
+/* public/css/purchase.css */
+
+/* General Body Styling */
+body {
+    background-color: #f0f2f5; /* Light grey background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling (assuming it's handled by layouts/app.blade.php and its own CSS) */
+/* The header in the image is black with white text and a search bar,
+   this won't be directly handled in purchase.css but should be consistent
+   with layouts/app.blade.php and global CSS. */
+.header-mock {
+    /* Mock header for visual representation if not using layouts/app */
+    background-color: #333;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-mock .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header-mock .search-bar {
+    width: 400px;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+}
+
+.header-mock .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Main purchase container */
+.purchase-page {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px; /* 元のパディングを維持 */
+}
+
+.purchase-container {
+    display: flex;
+    gap: 20px; /* スペースを少し狭く */
+    max-width: 960px; /* 全体幅を調整 */
+    width: 100%;
+    /* padding: 30px 20px;  このパディングは .purchase-page でカバーされるため不要 */
+}
+
+.purchase-left-column {
+    flex: 1; /* 左右カラムで均等に近い比率にする */
+    display: flex;
+    flex-direction: column; /* 縦並びを維持 */
+    gap: 20px;
+}
+
+.purchase-right-column {
+    flex: 1;
+}
+
+/* Common Section Styling */
+.product-section,
+.payment-method-section,
+.delivery-address-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* パディングを調整 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: 1.1em; /* タイトルを少し小さく */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px; /* マージンを調整 */
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Product Section */
+.product-info {
+    display: flex;
+    align-items: center; /* 縦方向中央揃え */
+    gap: 15px; /* 画像とテキストの間隔 */
+    margin-bottom: 15px; /* product-infoの下マージン */
+}
+
+.product-image-wrapper {
+    width: 150px; /* 画像の幅を80pxに */
+    height: 150px; /* 高さを80pxに */
+    overflow: hidden;
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0; /* 画像がない場合の背景色 */
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-name {
+    font-size: 1em; /* 商品名を少し小さく */
+    color: #333;
+    font-weight: bold;
+    margin: 0; /* マージンをリセット */
+}
+
+.product-price {
+    font-size: 1em; /* 価格を商品名と同じサイズに */
+    color: #333;
+    font-weight: bold;
+    margin-left: auto; /* 右寄せ */
+    white-space: nowrap;
+}
+
+/* Payment Method Section */
+.payment-selection-wrapper {
+    position: relative;
+    margin-top: 10px; /* マージンを追加 */
+}
+
+.payment-select {
+    width: 100%;
+    padding: 8px 12px; /* パディングを調整 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none; /* Remove default dropdown arrow */
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9em; /* フォントサイズを調整 */
+    color: #333;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 10px;
+}
+
+.payment-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Delivery Address Section */
+.address-details {
+    background-color: #fff; /* White background for the address box */
+    padding: 10px; /* パディングを調整 */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px; /* 行間を調整 */
+    position: relative; /* For positioning the change link */
+    margin-top: 10px; /* マージンを追加 */
+}
+
+.address-details p {
+    margin: 0;
+    color: #555;
+    font-size: 0.85em; /* フォントサイズを調整 */
+}
+
+.change-address-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #007bff; /* Blue link color */
+    text-decoration: none;
+    font-size: 0.8em; /* フォントサイズを調整 */
+}
+
+.change-address-link:hover {
+    text-decoration: underline;
+}
+
+/* Order Summary Box (Right Column) */
+.order-summary-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* パディングを調整 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* マージンを調整 */
+    font-size: 0.95em; /* フォントサイズを調整 */
+    color: #333;
+}
+
+.summary-item span:first-child {
+    font-weight: normal;
+}
+
+.summary-item span:last-child {
+    font-weight: bold;
+}
+
+.purchase-button {
+    width: 100%;
+    padding: 12px; /* パディングを調整 */
+    background-color: #ff4d4d; /* Red color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em; /* フォントサイズを調整 */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px; /* マージンを調整 */
+}
+
+.purchase-button:hover {
+    background-color: #e60000; /* Darker red on hover */
+}

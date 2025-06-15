@@ -25,7 +25,10 @@
                         <i class="far fa-comment"></i> {{ $product->comments->count() }}
                     </span>
                 </div>
-                <button class="btn btn-primary buy-button">購入手続きへ</button>
+                <a href="{{ route('products.purchase.form', ['product' => $product->id]) }}" class="btn btn-primary buy-button">
+                    購入手続きへ
+                </a>
+
             </div>
 
             <div class="product-description-section">
